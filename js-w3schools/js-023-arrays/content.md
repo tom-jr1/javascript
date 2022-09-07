@@ -180,3 +180,67 @@ em JS object usam index nomeados
 - Voce deve usar arrays quando quiser que os nomes dos el sejam números
 
 ## JS new Array()
+
+JS tem um construtor de array embutido **new Array()**
+Mas voce pode usar com segurança [] em vez disso.
+Essas duas instruções diferentes criam um novo array vazio chamado point
+
+~~~ javascript
+cont points = new Array();
+points = [];
+~~~
+
+Essas duas declarações diferentes criam um novo array:
+
+~~~ javascript
+const points = new Array(40, 100, 1, 5, 25, 10);
+const points = [40, 100, 1, 5, 25, 10];
+~~~
+
+A keyword new pode trazer alguns resultados inesperados
+
+~~~ javascript
+// Create an array with three elements:
+const points = new Array(40, 100, 1);
+
+// Create an array with two elements:
+const points = new Array(40, 100);
+
+// Create an array with one element ??? cria um array com 40 elementos com valor undefined
+const points = new Array(40);  
+~~~
+
+Erro comum
+
+~~~ javascript
+const points = [40];
+
+// não é o mesmo que:
+const points = new Array(40);
+~~~
+
+## Como reconhecer uma matriz
+Uma pergunta comum é como saber se uma var é array?
+O problema é que o operador typeof retorna um object
+
+~~~ javascript
+const fruits = ["Banana", "Orange", "Apple"];
+let type = typeof fruits;
+~~~
+
+Para resolver esse problema, o ECMAScript5(2009) definiu um novo método Array.isArray():
+
+~~~ javascript
+Array.isArray(fruits);
+~~~
+Solução 2
+O instanceof retorna true se um objeto for criado por um determinado construtor:
+
+~~~ javascript
+const fruits = ['Banana', 'Orange', 'Apple'];
+fruits instanceof Array; //return true
+~~~
+
+retorna um boolean
+
+length
