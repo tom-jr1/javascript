@@ -43,3 +43,25 @@ let votavel = (age > 18) ? 'SIM' : 'NÃO';
 ## Comparando diferentes tipos
 
 Pode gerar saídas unexpected
+Ao comparar uma string com um number, O JS converte a string em um number ao fazer
+a comparação. Uma string vazia é convertida em zero. Uma string não numérica é convertida em NaN que é sempre false
+
+~~~ javascript
+2 < 12	        //true	
+2 < "12"	    //true	
+2 < "John"	    //false	
+2 > "John"	    //false	
+2 == "John"	    //false	
+"2" < "12"	    //false	
+"2" > "12"	    //true	
+"2" == "12"     //false
+~~~
+
+## Operador de coalescência nulo(??)
+O '??' retorna o primeiro argumento se for null ou undefined. Caso contrario ele
+retorna o segundo
+~~~ javascript
+let name null;
+let text = 'missing';
+let result = name ?? text;
+~~~
