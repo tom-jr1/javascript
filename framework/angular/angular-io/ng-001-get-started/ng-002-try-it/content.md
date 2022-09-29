@@ -122,3 +122,36 @@ Input do @angular/core
 ~~~ javascript
 import {Input} from '@angular/core';
 ~~~
+
+Na definição da class ProductAlertsComponent, defina uma propriedade chamada 
+product com um decorator @Input(), indica que o valor da propriedade passa do pai 
+do component, ProductListComponent
+
+Abra product-alters.component.html e reescreva o paragrafo de espaço reservado por
+um botão Notifique-me que aparece se o preço do produto for superior que 700
+
+O gerador adicionou automaticamente o ProductAlertsComponent a appModule para 
+disponibiliza-lo para outros components no app.
+
+Por fim, para exibir ProductAlertsComponent como filho de productComponent
+adicione o elemento <app-product-alerts> a product-list-component.html. Passar o 
+produto atual como entrada para o componente usando vinculação de propriedade
+
+## Passando dados para o component pai
+
+Para que o botão notifique me funcione, o component filho precisa notificar e 
+passar os dados para o component pai. O ProductAlertsComponent precisa emitir um evento quando o usuário clicar em notifique me e o ProductListComponent precisa
+responder ao evento.
+
+Em product-alters.component.ts import Output e EventEmitter do @angular/core
+
+no component defina uma var chamada notify com o decorator @Output que seja uma 
+instancia de EventEmitter. Essa configuração permite que ProductAlertsComponent 
+emita um evento quando o valor da propriedade for alterada
+
+Em product-alerts.component.html atualize o botão notify com uma chamada de evento
+com a callback = notify.emit()
+
+Defina o comportamento de quando o user clica no botão
+
+Atualize o ProductListComponent para receber dados do ProductAlertsComponent

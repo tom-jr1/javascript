@@ -82,3 +82,109 @@ for(let i = 0 ; i < 10 ; i++) {
 No primeiro exemplo usando var , a var declarada no loop, redeclara a var de fora
 No segundo ex usando let, a var declarada no loop não  redeclara a var fora
 Quando o let é usado para declarar a var no loop, ela tem scope apenas no loop
+
+
+# For In
+
+## For in
+percorre as propriedades de um objeto
+
+**Sintaxe**
+~~~ javascript
+for (key in object) {
+  //codeblock
+}
+~~~
+
+exemplo:
+~~~ javascript
+const person = {
+  fName: 'John',
+  lName: 'Doe',
+  age: 25
+}
+
+let text = '';
+for(let x in person) {
+  text += ` ${person[x]}`
+}
+~~~
+
+- O loop for in itera sobre um objeto pessoa
+- cada iteração retorna a chave(x)
+- a chave é usada para acessar o valor da chave
+- o valor da chave é person[x]
+
+## For in over
+A instrução for in tbm pode fazer um loop sobre as propriedades de um array 
+
+~~~ javascript
+for(variable in array) {
+  //codeblock
+}
+~~~
+
+exemplo
+
+~~~ javascript
+const numbers = [45, 4, 9, 16, 25];
+let text = '';
+for(let x in numbers) {
+  text += number[x];
+}
+~~~
+
+evite usar o for in em arrays quando deseja seguir a ordem
+
+
+## Array.forEach()
+
+O forEach() chama uma function callback uma vez para cada elemento de uma lista
+
+~~~ javascript
+const numbers = [45, 4, 9, 16, 25];
+
+let txt = "";
+numbers.forEach(myFunction);
+
+function myFunction(value, index, array) {
+  txt += value;
+}
+~~~
+A função recebe 3 args
+- o valor do item
+- index do item
+- a matriz em si
+
+# For of
+
+percorre os valores de um objeto iterável
+Ele permite que voce faça um loop sobre estrutura de dados iteráveis, como array, string, Maps, NodeList e
+muito mais:
+
+**Sintaxe**:
+~~~ javascript
+for(variable of iterable) {
+  //codeblock
+}
+~~~
+
+## Loop sobre uma matriz
+ex
+~~~ javascript
+const cars = ["BMW", "Volvo", "Mini"];
+let txt = '';
+for(let car of cars) {
+  txt += car;
+}
+~~~
+
+## Loop sobre uma string 
+
+~~~ javascript
+let language = 'JavaScript';
+let txt  = '';
+for(let char of language) {
+  txt += ` ${char}`;
+}
+~~~
